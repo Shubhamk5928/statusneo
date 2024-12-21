@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+    <title>Status Neo | Home</title>
+</head>
+<body>
+    <!-- Quick Contact bar -->
+<div class="bg-black text-white text-sm py-2 px-4 flex justify-between items-center">
+    <!-- Contact Details -->
+    <div class="flex items-center space-x-4">
+        <span class="font-bold">📞 Contact: </span>
+        <a href="tel:+1234567890" class="hover:text-yellow-500">+1 234 567 890</a>
+        <span class="font-bold">📍 Address: </span>
+        <span>123 Street Name, City</span>
+    </div>
+    <!-- Social Media Icons -->
+    <div class="flex items-center space-x-4">
+        <a href="https://facebook.com" target="_blank" class="hover:text-yellow-500">Facebook</a>
+        <a href="https://twitter.com" target="_blank" class="hover:text-yellow-500">Twitter</a>
+        <a href="https://instagram.com" target="_blank" class="hover:text-yellow-500">Instagram</a>
+        <a href="https://linkedin.com" target="_blank" class="hover:text-yellow-500">LinkedIn</a>
+    </div>
+</div>
+
+    <!-- header -->
+<!-- Header Section -->
+<header class="bg-black text-white py-4 px-6">
+    <div class="container mx-auto flex justify-between items-center">
+        <!-- Logo -->
+        <div class="text-3xl font-bold text-yellow-500">
+            <a href="#">Status Neo</a>
+        </div>
+        <!-- Navigation Menu -->
+        <nav class="hidden md:flex space-x-6">
+            <a href="#home" class="hover:text-yellow-500">Home</a>
+            <a href="#about" class="hover:text-yellow-500">About</a>
+            <a href="#services" class="hover:text-yellow-500">Services</a>
+            <a href="#portfolio" class="hover:text-yellow-500">Portfolio</a>
+            <a href="#contact" class="hover:text-yellow-500">Contact</a>
+        </nav>
+        <!-- Mobile Menu Icon -->
+        <div class="md:hidden text-yellow-500 cursor-pointer" id="menu-toggle">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+            </svg>
+        </div>
+    </div>
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden bg-black text-white py-4 px-6">
+        <a href="#home" class="block py-2 hover:text-yellow-500">Home</a>
+        <a href="#about" class="block py-2 hover:text-yellow-500">About</a>
+        <a href="#services" class="block py-2 hover:text-yellow-500">Services</a>
+        <a href="#portfolio" class="block py-2 hover:text-yellow-500">Portfolio</a>
+        <a href="#contact" class="block py-2 hover:text-yellow-500">Contact</a>
+    </div>
+</header>
+
+<script>
+    // Mobile Menu Toggle
+    document.getElementById('menu-toggle').addEventListener('click', function () {
+        const menu = document.getElementById('mobile-menu');
+        menu.classList.toggle('hidden');
+    });
+</script>
+
+    <!-- 4 images Slide Show with some header text and links of read more between them -->
+<!-- Slideshow Section -->
+<section class="relative bg-black">
+    <!-- Header Text -->
+    <div class="absolute top-0 left-0 w-full text-center text-white py-6">
+        <h1 class="text-4xl font-bold">Welcome to Status Neo</h1>
+        <p class="text-lg mt-2">Innovating the Future</p>
+        <a href="#about" class="mt-4 inline-block bg-yellow-500 text-black px-6 py-2 rounded hover:bg-yellow-600">Read More</a>
+    </div>
+    <!-- Slideshow -->
+    <div class="relative overflow-hidden">
+        <div id="slideshow" class="w-full h-64 md:h-96">
+            <!-- Slide 1 -->
+            <div class="absolute inset-0 transition-opacity duration-1000 opacity-100">
+                <img src="https://via.placeholder.com/800x400" alt="Slide 1" class="w-full h-full object-cover">
+            </div>
+            <!-- Slide 2 -->
+            <div class="absolute inset-0 transition-opacity duration-1000 opacity-0">
+                <img src="https://via.placeholder.com/800x400/ffcc00" alt="Slide 2" class="w-full h-full object-cover">
+            </div>
+            <!-- Slide 3 -->
+            <div class="absolute inset-0 transition-opacity duration-1000 opacity-0">
+                <img src="https://via.placeholder.com/800x400/000000" alt="Slide 3" class="w-full h-full object-cover">
+            </div>
+            <!-- Slide 4 -->
+            <div class="absolute inset-0 transition-opacity duration-1000 opacity-0">
+                <img src="https://via.placeholder.com/800x400/ffffff" alt="Slide 4" class="w-full h-full object-cover">
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+    // Slideshow JavaScript
+    let currentSlide = 0;
+    const slides = document.querySelectorAll("#slideshow > div");
+
+    function showSlide(index) {
+        slides.forEach((slide, i) => {
+            slide.style.opacity = i === index ? "1" : "0";
+        });
+    }
+
+    function nextSlide() {
+        currentSlide = (currentSlide + 1) % slides.length;
+        showSlide(currentSlide);
+    }
+
+    setInterval(nextSlide, 3000); // Change slide every 3 seconds
+    showSlide(currentSlide); // Initialize
+</script>
+
+    <!-- Service Section 2 columns divided with 3 rows -->
+<!-- Service Section -->
+<section class="bg-black text-white py-12">
+    <div class="container mx-auto px-6">
+        <!-- Section Header -->
+        <div class="text-center mb-8">
+            <h2 class="text-3xl font-bold text-yellow-500">Our Services</h2>
+            <p class="text-lg mt-2">We provide top-notch solutions to meet your needs</p>
+        </div>
+        <!-- Services Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <!-- Service 1 -->
+            <div class="bg-gray-800 p-6 rounded shadow hover:bg-gray-700 transition">
+                <h3 class="text-xl font-semibold text-yellow-500">Web Development</h3>
+                <p class="mt-2">Create stunning and functional websites with our expert team.</p>
+                <a href="#web-development" class="text-yellow-500 hover:text-yellow-600 mt-4 inline-block">Learn More →</a>
+            </div>
+            <!-- Service 2 -->
+            <div class="bg-gray-800 p-6 rounded shadow hover:bg-gray-700 transition">
+                <h3 class="text-xl font-semibold text-yellow-500">Mobile App Development</h3>
+                <p class="mt-2">Build innovative and user-friendly mobile applications.</p>
+                <a href="#mobile-app" class="text-yellow-500 hover:text-yellow-600 mt-4 inline-block">Learn More →</a>
+            </div>
+            <!-- Service 3 -->
+            <div class="bg-gray-800 p-6 rounded shadow hover:bg-gray-700 transition">
+                <h3 class="text-xl font-semibold text-yellow-500">UI/UX Design</h3>
+                <p class="mt-2">Design interfaces that are both beautiful and user-friendly.</p>
+                <a href="#ui-ux-design" class="text-yellow-500 hover:text-yellow-600 mt-4 inline-block">Learn More →</a>
+            </div>
+            <!-- Service 4 -->
+            <div class="bg-gray-800 p-6 rounded shadow hover:bg-gray-700 transition">
+                <h3 class="text-xl font-semibold text-yellow-500">Digital Marketing</h3>
+                <p class="mt-2">Reach your target audience with our digital marketing services.</p>
+                <a href="#digital-marketing" class="text-yellow-500 hover:text-yellow-600 mt-4 inline-block">Learn More →</a>
+            </div>
+            <!-- Service 5 -->
+            <div class="bg-gray-800 p-6 rounded shadow hover:bg-gray-700 transition">
+                <h3 class="text-xl font-semibold text-yellow-500">Cloud Solutions</h3>
+                <p class="mt-2">Leverage the power of the cloud for your business growth.</p>
+                <a href="#cloud-solutions" class="text-yellow-500 hover:text-yellow-600 mt-4 inline-block">Learn More →</a>
+            </div>
+            <!-- Service 6 -->
+            <div class="bg-gray-800 p-6 rounded shadow hover:bg-gray-700 transition">
+                <h3 class="text-xl font-semibold text-yellow-500">Cybersecurity</h3>
+                <p class="mt-2">Protect your business with our robust security solutions.</p>
+                <a href="#cybersecurity" class="text-yellow-500 hover:text-yellow-600 mt-4 inline-block">Learn More →</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <!-- skill set -->
+<!-- Skill Set Section -->
+<section class="bg-black text-white py-12">
+    <div class="container mx-auto px-6">
+        <!-- Section Header -->
+        <div class="text-center mb-8">
+            <h2 class="text-3xl font-bold text-yellow-500">Our Skill Set</h2>
+            <p class="text-lg mt-2">Mastering the craft to deliver excellence</p>
+        </div>
+        <!-- Skill Bars -->
+        <div class="space-y-6">
+            <!-- Skill 1 -->
+            <div class="relative" data-aos="fade-right">
+                <h3 class="text-lg font-semibold">Web Development</h3>
+                <div class="w-full bg-gray-700 rounded-full h-4 mt-2">
+                    <div class="bg-yellow-500 h-4 rounded-full" style="width: 90%;"></div>
+                </div>
+            </div>
+            <!-- Skill 2 -->
+            <div class="relative" data-aos="fade-left">
+                <h3 class="text-lg font-semibold">Mobile App Development</h3>
+                <div class="w-full bg-gray-700 rounded-full h-4 mt-2">
+                    <div class="bg-yellow-500 h-4 rounded-full" style="width: 85%;"></div>
+                </div>
+            </div>
+            <!-- Skill 3 -->
+            <div class="relative" data-aos="fade-right">
+                <h3 class="text-lg font-semibold">UI/UX Design</h3>
+                <div class="w-full bg-gray-700 rounded-full h-4 mt-2">
+                    <div class="bg-yellow-500 h-4 rounded-full" style="width: 80%;"></div>
+                </div>
+            </div>
+            <!-- Skill 4 -->
+            <div class="relative" data-aos="fade-left">
+                <h3 class="text-lg font-semibold">Digital Marketing</h3>
+                <div class="w-full bg-gray-700 rounded-full h-4 mt-2">
+                    <div class="bg-yellow-500 h-4 rounded-full" style="width: 75%;"></div>
+                </div>
+            </div>
+            <!-- Skill 5 -->
+            <div class="relative" data-aos="fade-right">
+                <h3 class="text-lg font-semibold">Cybersecurity</h3>
+                <div class="w-full bg-gray-700 rounded-full h-4 mt-2">
+                    <div class="bg-yellow-500 h-4 rounded-full" style="width: 70%;"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- AOS Library -->
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+    AOS.init({
+        duration: 1000, // Animation duration
+        once: true, // Animation happens only once
+    });
+</script>
+
+<!-- Office Slideshow Section -->
+<section class="bg-black text-white py-12">
+    <div class="container mx-auto px-6">
+        <!-- Section Header -->
+        <div class="text-center mb-8">
+            <h2 class="text-3xl font-bold text-yellow-500">Our Office</h2>
+            <p class="text-lg mt-2">A glimpse of our vibrant workspace</p>
+        </div>
+        <!-- Slideshow -->
+        <div class="relative overflow-hidden">
+            <!-- Carousel Images -->
+            <div id="office-carousel" class="relative w-full h-64 md:h-96">
+                <div class="absolute inset-0 transition-opacity duration-1000 opacity-100">
+                    <img src="https://via.placeholder.com/800x400/000000/FFFFFF?text=Office+1" alt="Office 1" class="w-full h-full object-cover">
+                </div>
+                <div class="absolute inset-0 transition-opacity duration-1000 opacity-0">
+                    <img src="https://via.placeholder.com/800x400/FFCC00/000000?text=Office+2" alt="Office 2" class="w-full h-full object-cover">
+                </div>
+                <div class="absolute inset-0 transition-opacity duration-1000 opacity-0">
+                    <img src="https://via.placeholder.com/800x400/FFFFFF/000000?text=Office+3" alt="Office 3" class="w-full h-full object-cover">
+                </div>
+                <div class="absolute inset-0 transition-opacity duration-1000 opacity-0">
+                    <img src="https://via.placeholder.com/800x400/000000/FFCC00?text=Office+4" alt="Office 4" class="w-full h-full object-cover">
+                </div>
+            </div>
+            <!-- Carousel Controls -->
+            <div class="absolute inset-0 flex justify-between items-center px-4">
+                <button id="prev-slide" class="text-yellow-500 text-3xl font-bold">‹</button>
+                <button id="next-slide" class="text-yellow-500 text-3xl font-bold">›</button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+    // Slideshow JavaScript
+    const slides = document.querySelectorAll("#office-carousel > div");
+    let currentSlide = 0;
+
+    function showSlide(index) {
+        slides.forEach((slide, i) => {
+            slide.style.opacity = i === index ? "1" : "0";
+        });
+    }
+
+    function nextSlide() {
+        currentSlide = (currentSlide + 1) % slides.length;
+        showSlide(currentSlide);
+    }
+
+    function prevSlide() {
+        currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+        showSlide(currentSlide);
+    }
+
+    document.getElementById("next-slide").addEventListener("click", nextSlide);
+    document.getElementById("prev-slide").addEventListener("click", prevSlide);
+
+    setInterval(nextSlide, 5000); // Automatically change slide every 5 seconds
+    showSlide(currentSlide); // Initialize the slideshow
+</script>
+
+<!-- Core Values Section -->
+<section class="bg-black text-white py-12">
+    <div class="container mx-auto px-6">
+        <!-- Section Header -->
+        <div class="text-center mb-8">
+            <h2 class="text-3xl font-bold text-yellow-500">Our Core Values</h2>
+            <p class="text-lg mt-2">Guiding principles that drive our success</p>
+        </div>
+        <!-- Core Values Cards -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <!-- Card 1 -->
+            <div class="bg-gray-800 p-6 rounded shadow hover:bg-gray-700 transition text-center">
+                <div class="mb-4">
+                    <img src="https://via.placeholder.com/64/FFCC00/000000?text=1" alt="Integrity" class="mx-auto">
+                </div>
+                <h3 class="text-xl font-bold text-yellow-500">Integrity</h3>
+                <p class="mt-2">We uphold the highest standards of honesty and ethics in all our actions.</p>
+            </div>
+            <!-- Card 2 -->
+            <div class="bg-gray-800 p-6 rounded shadow hover:bg-gray-700 transition text-center">
+                <div class="mb-4">
+                    <img src="https://via.placeholder.com/64/FFCC00/000000?text=2" alt="Innovation" class="mx-auto">
+                </div>
+                <h3 class="text-xl font-bold text-yellow-500">Innovation</h3>
+                <p class="mt-2">Pushing the boundaries of creativity and technology to deliver excellence.</p>
+            </div>
+            <!-- Card 3 -->
+            <div class="bg-gray-800 p-6 rounded shadow hover:bg-gray-700 transition text-center">
+                <div class="mb-4">
+                    <img src="https://via.placeholder.com/64/FFCC00/000000?text=3" alt="Collaboration" class="mx-auto">
+                </div>
+                <h3 class="text-xl font-bold text-yellow-500">Collaboration</h3>
+                <p class="mt-2">Harnessing the power of teamwork to achieve common goals.</p>
+            </div>
+            <!-- Card 4 -->
+            <div class="bg-gray-800 p-6 rounded shadow hover:bg-gray-700 transition text-center">
+                <div class="mb-4">
+                    <img src="https://via.placeholder.com/64/FFCC00/000000?text=4" alt="Customer-Centric" class="mx-auto">
+                </div>
+                <h3 class="text-xl font-bold text-yellow-500">Customer-Centric</h3>
+                <p class="mt-2">Placing our customers at the heart of everything we do.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <!--  OUR PARTNER EXCELLENCE -->
+<!-- OUR PARTNER EXCELLENCE -->
+<section class="bg-black text-white py-12">
+    <div class="container mx-auto px-6">
+        <!-- Section Header -->
+        <div class="text-center mb-8">
+            <h2 class="text-3xl font-bold text-yellow-500">Our Partner Excellence</h2>
+            <p class="text-lg mt-2">Trusted by global leaders and innovators</p>
+        </div>
+        <!-- Partner Logos -->
+        <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-8 items-center">
+            <!-- Logo 1 -->
+            <div class="flex justify-center">
+                <img src="https://via.placeholder.com/150x50/FFCC00/000000?text=Google" alt="Google" class="h-12">
+            </div>
+            <!-- Logo 2 -->
+            <div class="flex justify-center">
+                <img src="https://via.placeholder.com/150x50/FFCC00/000000?text=Microsoft" alt="Microsoft" class="h-12">
+            </div>
+            <!-- Logo 3 -->
+            <div class="flex justify-center">
+                <img src="https://via.placeholder.com/150x50/FFCC00/000000?text=Amazon" alt="Amazon" class="h-12">
+            </div>
+            <!-- Logo 4 -->
+            <div class="flex justify-center">
+                <img src="https://via.placeholder.com/150x50/FFCC00/000000?text=IBM" alt="IBM" class="h-12">
+            </div>
+            <!-- Logo 5 -->
+            <div class="flex justify-center">
+                <img src="https://via.placeholder.com/150x50/FFCC00/000000?text=Intel" alt="Intel" class="h-12">
+            </div>
+            <!-- Logo 6 -->
+            <div class="flex justify-center">
+                <img src="https://via.placeholder.com/150x50/FFCC00/000000?text=Oracle" alt="Oracle" class="h-12">
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Contact Section -->
+<section class="bg-black text-white py-12">
+    <div class="container mx-auto px-6">
+        <!-- Section Header -->
+        <div class="text-center mb-8">
+            <h2 class="text-3xl font-bold text-yellow-500">Get in Touch</h2>
+            <p class="text-lg mt-2">We'd love to hear from you! Fill out the form below and we'll get back to you soon.</p>
+        </div>
+        <!-- Contact Form -->
+        <div class="max-w-lg mx-auto bg-gray-800 p-6 rounded shadow">
+            <form action="#" method="POST">
+                <!-- Name -->
+                <div class="mb-4">
+                    <label for="name" class="block text-sm font-bold mb-2">Your Name</label>
+                    <input type="text" id="name" name="name" class="w-full px-4 py-2 rounded bg-gray-700 text-white focus:outline-none focus:ring-2 focus:ring-yellow-500" placeholder="John Doe" required>
+                </div>
+                <!-- Email -->
+                <div class="mb-4">
+                    <label for="email" class="block text-sm font-bold mb-2">Your Email</label>
+                    <input type="email" id="email" name="email" class="w-full px-4 py-2 rounded bg-gray-700 text-white focus:outline-none focus:ring-2 focus:ring-yellow-500" placeholder="example@email.com" required>
+                </div>
+                <!-- Message -->
+                <div class="mb-4">
+                    <label for="message" class="block text-sm font-bold mb-2">Message</label>
+                    <textarea id="message" name="message" rows="4" class="w-full px-4 py-2 rounded bg-gray-700 text-white focus:outline-none focus:ring-2 focus:ring-yellow-500" placeholder="Your message..." required></textarea>
+                </div>
+                <!-- Submit Button -->
+                <div class="text-center">
+                    <button type="submit" class="bg-yellow-500 text-black px-6 py-2 rounded font-bold hover:bg-yellow-600">Send Message</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="bg-black text-white py-6">
+    <div class="container mx-auto px-6">
+        <!-- Footer Content -->
+        <div class="flex flex-wrap justify-between items-center">
+            <!-- Company Info -->
+            <div class="mb-4 md:mb-0">
+                <h3 class="text-xl font-bold text-yellow-500">Status Neo</h3>
+                <p class="text-sm mt-2">Innovating the Future</p>
+            </div>
+            <!-- Quick Links -->
+            <div class="mb-4 md:mb-0">
+                <ul class="space-y-2">
+                    <li><a href="#about" class="hover:text-yellow-500">About Us</a></li>
+                    <li><a href="#services" class="hover:text-yellow-500">Services</a></li>
+                    <li><a href="#contact" class="hover:text-yellow-500">Contact</a></li>
+                </ul>
+            </div>
+            <!-- Social Links -->
+            <div>
+                <div class="flex space-x-4">
+                    <a href="https://facebook.com" target="_blank" class="hover:text-yellow-500">Facebook</a>
+                    <a href="https://twitter.com" target="_blank" class="hover:text-yellow-500">Twitter</a>
+                    <a href="https://instagram.com" target="_blank" class="hover:text-yellow-500">Instagram</a>
+                </div>
+            </div>
+        </div>
+        <!-- Footer Bottom -->
+        <div class="mt-6 text-center text-sm">
+            © 2024 Status Neo. All Rights Reserved.
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>
